@@ -4,9 +4,10 @@ pub struct BlogEntry {
 }
 
 pub struct BlogMeta {
-    pub id: i32,
+    pub slug: &'static str,
     pub title: &'static str,
     pub sub_title: &'static str,
+    pub date: &'static str,
 }
 
 pub struct BlogParagraph {
