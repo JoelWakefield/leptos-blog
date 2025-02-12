@@ -1,7 +1,7 @@
-#[path = "../components/mod.rs"]
-mod components;
+#[path = "../components/card.rs"]
+mod card;
 
-use components::card::Card;
+use card::Card;
 use leptos::prelude::*;
 
 #[component]

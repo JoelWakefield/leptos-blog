@@ -1,14 +1,14 @@
-#[path = "./components/mod.rs"]
-mod components;
+#[path = "./components/nav_link.rs"]
+mod nav_link;
 #[path = "./pages/mod.rs"]
 mod pages;
 
-use components::nav_link::NavLink;
 use leptos::prelude::*;
 use leptos_router::{
     components::{Route, Router, Routes},
     path,
 };
+use nav_link::NavLink;
 use pages::blogs::Blogs;
 use pages::home::Home;
 use pages::source_codes::SourceCodes;
