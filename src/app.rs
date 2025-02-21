@@ -5,7 +5,7 @@ mod pages;
 
 use leptos::prelude::*;
 use leptos_router::{
-    components::{Route, Router, Routes},
+    components::{ParentRoute, Route, Router, Routes},
     path,
 };
 use nav_link::NavLink;
@@ -29,7 +29,12 @@ pub fn App() -> impl IntoView {
         <main>
           <Routes fallback=|| "404: Not Found.">
             <Route path=path!("/") view=Home />
-            <Route path=path!("/blogs") view=Blogs />
+            <ParentRoute path=path!("/blogs") view=Blogs>
+              <Route path=path!(":slug") view=Blogs />
+              <Route path=path!("") view=|| view! {
+                <p>"Select a blog."</p>
+              }/>
+            </ParentRoute>
             <Route path=path!("/source-codes") view=SourceCodes />
             <Route path=path!("/videos") view=Videos />
             <Route path=path!("/*any") view=|| view! { <h1>"Not Found"</h1> }/>

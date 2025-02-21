@@ -1,3 +1,4 @@
+pub mod blog;
 pub mod blogs;
 pub mod home;
 pub mod source_codes;

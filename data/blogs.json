@@ -1,8 +1,11 @@
 {
   "rust-for-blogs": {
-    "title": "Rust for Blogs?",
-    "sub_title": "Using Leptos for a rust based blog site.",
-    "date": "2-11-2025",
+    "meta": {
+      "slug": "rust-for-blogs",
+      "title": "Rust for Blogs?",
+      "sub_title": "Using Leptos for a rust based blog site.",
+      "date": "2-11-2025"
+    },
     "paragraphs": [
       {
         "text": "There are many different frameworks to build a website, and blogs have been around for decades - they're pretty straightforward. Professionally, if I were asked to build a blog, I would go with nextjs since I'm comfortable with React. Next is well made, easy to use, and stable.",
