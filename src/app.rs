@@ -2,6 +2,10 @@
 mod nav_link;
 #[path = "./pages/mod.rs"]
 mod pages;
+#[path = "./models/mod.rs"]
+mod models;
+#[path = "./services/mod.rs"]
+mod services;
 
 use leptos::prelude::*;
 use leptos_router::{

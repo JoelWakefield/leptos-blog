@@ -1,1 +1,1 @@
-pub mod blogs;
+pub mod blog_models;

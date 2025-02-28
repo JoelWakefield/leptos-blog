@@ -1,55 +1,38 @@
-use std::{collections::HashMap, fs};
-
 use leptos::prelude::*;
-use serde::{Deserialize, Serialize};
+use leptos_router::{hooks::use_params, params::Params};
 
-#[derive(Serialize, Deserialize, Debug, Clone)]
-pub struct Blogs {}
+use crate::app::services::blog_service::get_blog;
 
-#[derive(Serialize, Deserialize, Debug, Clone)]
-pub struct BlogEntry {
-    pub meta: BlogMeta,
-    pub paragraphs: Vec<BlogParagraph>,
-}
-
-#[derive(Serialize, Deserialize, Debug, Clone)]
-pub struct BlogMeta {
-    pub slug: String,
-    pub title: String,
-    pub sub_title: String,
-    pub date: String,
-}
-
-#[derive(Serialize, Deserialize, Debug, Clone)]
-pub struct BlogParagraph {
-    pub text: String,
-    pub is_code: bool,
-}
-
-pub fn get_blog(slug: String) -> Result<BlogEntry, String> {
-    let Ok(content) = fs::read_to_string("../../data/blogs.json") else {
-        return Err("could not open blogs data file".to_string());
-    };
-
-    print!("file contents: {:?}", content);
-    let Ok(blogs) = serde_json::from_str::<HashMap<String, BlogEntry>>(content.as_str()) else {
-        return Err("could not deserialize file data".to_string());
-    };
-    print!("blogs: {:?}", blogs);
-
-    match blogs.get(&slug) {
-        Some(blog) => Ok(blog.clone()),
-        None => Err(format!("Cannot find blog: {:?}", slug)),
-    }
+#[derive(Params, PartialEq)]
+struct BlogParams {
+    slug: Option<String>,
 }
 
 #[component]
-pub fn Blog(slug: &'static str) -> impl IntoView {
-    let blog = get_blog(slug.to_string()).unwrap();
+pub fn Blog() -> impl IntoView {
+    let params = use_params::<BlogParams>();
+    let slug = params
+            .read()
+            .as_ref()
+            .ok()
+            .and_then(|params| params.slug.clone())
+            .unwrap_or_default();
+
+    let blog = get_blog(slug).unwrap();
+    let (paragraphs, _) = signal(blog.paragraphs);
 
     view! {
-      <article>
-        <h3>{blog.meta.title}</h3>
-      </article>
+        <header>
+            <h3>{blog.meta.title}</h3>
+        </header>
+        <article>
+        <For 
+            each=move || paragraphs.get()
+            key=|paragraph| paragraph.section.clone()
+            let(child)
+        >
+            <p>{child.text}</p>
+        </For>
+        </article>
     }
 }
