@@ -1,4 +1,4 @@
-use leptos::prelude::*;
+use leptos::{leptos_dom::logging::console_log, prelude::*};
 use leptos_router::{hooks::use_params, params::Params};
 
 use crate::app::services::blog_service::get_blog;
@@ -18,7 +18,9 @@ pub fn Blog() -> impl IntoView {
             .and_then(|params| params.slug.clone())
             .unwrap_or_default();
 
+    console_log(slug.as_str());
     let blog = get_blog(slug).unwrap();
+    console_log(&blog.meta.title);
     let (paragraphs, _) = signal(blog.paragraphs);
 
     view! {
@@ -26,13 +28,13 @@ pub fn Blog() -> impl IntoView {
             <h3>{blog.meta.title}</h3>
         </header>
         <article>
-        <For 
-            each=move || paragraphs.get()
-            key=|paragraph| paragraph.section.clone()
-            let(child)
-        >
-            <p>{child.text}</p>
-        </For>
+            <For 
+                each=move || paragraphs.get()
+                key=|paragraph| paragraph.section.clone()
+                let(child)
+            >
+                <p>{child.text}</p>
+            </For>
         </article>
     }
 }

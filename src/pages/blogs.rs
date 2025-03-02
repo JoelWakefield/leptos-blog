@@ -17,7 +17,7 @@ pub fn Blogs() -> impl IntoView {
           key=|meta| meta.slug.clone()
           let(child)
         >
-          <a href=format!("/blogs/{:?}", child.slug)>
+          <a href=format!("/blogs/{}", child.slug)>
             {child.title}
           </a>
         </For>
