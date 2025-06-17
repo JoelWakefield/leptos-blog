@@ -5,38 +5,40 @@ use crate::app::components::card::Card;
 #[component]
 pub fn Projects() -> impl IntoView {
     view! {
-      <div class="m-4 text-center">
-        <h1 class="text-2xl">"Projects"</h1>
+      <div class="my-4 mx-auto max-w-lg flex flex-col gap-y-8 items-center text-center">
+        <h1 class="text-2xl gap-y-6">"Projects"</h1>
 
-        <Card
-          title="Gomi Moni"
-          href="gomi-moni"
-          text="A godot game made for the Pompous Trash Jam 2025."
-        />
+        <div class="flex flex-col ">
+          <h2>"Completed"</h2>
 
-        <Card
-          title="Break Glass"
-          href="break-glass"
-          text="A 2d obstacle course game made with Godot."
-        />
+          <Card
+            title="Gomi Moni"
+            href="gomi-moni"
+            text="A godot game made for the Pompous Trash Jam 2025."
+            image_src="gomi-moni.png"
+          />
 
-        <Card
-          title="Course Constructor"
-          href="course-constructor"
-          text="Build race tracks, then race on them."
-        />
+          <Card
+            title="Break Glass"
+            href="break-glass"
+            text="A 2D obstacle course game made with Godot."
+            image_src="break-glass.png"
+          />
 
-        <Card
-          title="Vox Box"
-          href="vox-box"
-          text="Record and edit sounds."
-        />
+          <Card
+            title="Hot Panda with Moonbeam"
+            href="hot-panda"
+            text="A 3D fighting game made for the Hexcode Palette Jam."
+            image_src="hot-panda.png"
+          />
 
-        <Card
-          title="Hill Builder"
-          href="hill-builder"
-          text="A simple simulation about modifying terrain."
-        />
+          <Card
+            title="Make Words"
+            href="make-words"
+            text="An interactive experience about putting letters together."
+            image_src="make-words.png"
+          />
+        </div>
       </div>
     }
 }
