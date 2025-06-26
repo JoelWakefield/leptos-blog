@@ -29,7 +29,7 @@ pub fn App() -> impl IntoView {
             <NavLink href="/" label="Home" />
             <NavLink href="/about" label="About Me" />
             <NavLink href="/projects" label="Projects" />
-            <NavLink href="/contact" label="ContactPage" />
+            <NavLink href="/contact" label="Contact Page" />
           </div>
         </nav>
         <main>

@@ -12,14 +12,14 @@ where
     H: ToHref + Send + Sync + 'static,
 {
     view! {
-      <div class="w-full py-4 px-14 max-w-lg text-left bg-(--lightblue)">
+      <div class="w-full py-2 px-14 text-left">
         <A href=href>
           <div class="p-10 flex flex-row rounded-lg bg-(--yellow)">
             <div>
-              <p class="text-black text-4xl">{title}</p>
+              <h3 class="text-black text-3xl">{title}</h3>
               <p class="text-black text-lg">{text}</p>
             </div>
-            <img src={image_src} alt={title} width="128" height="128" />
+            <img src={image_src} alt={title} width="240" height="180" />
           </div>
         </A>
       </div>
