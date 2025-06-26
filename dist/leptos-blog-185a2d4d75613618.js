@@ -220,23 +220,23 @@ function debugString(val) {
     return className;
 }
 function __wbg_adapter_32(arg0, arg1) {
-    wasm._dyn_core__ops__function__FnMut_____Output___R_as_wasm_bindgen__closure__WasmClosure___describe__invoke__hc8f64dabd52ae720(arg0, arg1);
+    wasm._dyn_core__ops__function__FnMut_____Output___R_as_wasm_bindgen__closure__WasmClosure___describe__invoke__h27130500e6e23739(arg0, arg1);
 }
 
 function __wbg_adapter_35(arg0, arg1, arg2) {
-    wasm.closure417_externref_shim(arg0, arg1, arg2);
+    wasm.closure480_externref_shim(arg0, arg1, arg2);
 }
 
 function __wbg_adapter_38(arg0, arg1) {
-    wasm._dyn_core__ops__function__Fn_____Output___R_as_wasm_bindgen__closure__WasmClosure___describe__invoke__hf00b1667b5286a7b(arg0, arg1);
+    wasm._dyn_core__ops__function__Fn_____Output___R_as_wasm_bindgen__closure__WasmClosure___describe__invoke__hbadea8cf85aab952(arg0, arg1);
 }
 
 function __wbg_adapter_41(arg0, arg1, arg2) {
-    wasm.closure494_externref_shim(arg0, arg1, arg2);
+    wasm.closure555_externref_shim(arg0, arg1, arg2);
 }
 
 function __wbg_adapter_230(arg0, arg1, arg2, arg3) {
-    wasm.closure515_externref_shim(arg0, arg1, arg2, arg3);
+    wasm.closure576_externref_shim(arg0, arg1, arg2, arg3);
 }
 
 const __wbindgen_enum_ReadableStreamType = ["bytes"];
@@ -884,20 +884,20 @@ function __wbg_get_imports() {
         const ret = false;
         return ret;
     };
-    imports.wbg.__wbindgen_closure_wrapper11627 = function(arg0, arg1, arg2) {
-        const ret = makeMutClosure(arg0, arg1, 495, __wbg_adapter_41);
+    imports.wbg.__wbindgen_closure_wrapper12692 = function(arg0, arg1, arg2) {
+        const ret = makeMutClosure(arg0, arg1, 556, __wbg_adapter_41);
         return ret;
     };
-    imports.wbg.__wbindgen_closure_wrapper6067 = function(arg0, arg1, arg2) {
-        const ret = makeMutClosure(arg0, arg1, 416, __wbg_adapter_32);
+    imports.wbg.__wbindgen_closure_wrapper7062 = function(arg0, arg1, arg2) {
+        const ret = makeMutClosure(arg0, arg1, 479, __wbg_adapter_32);
         return ret;
     };
-    imports.wbg.__wbindgen_closure_wrapper6069 = function(arg0, arg1, arg2) {
-        const ret = makeMutClosure(arg0, arg1, 418, __wbg_adapter_35);
+    imports.wbg.__wbindgen_closure_wrapper7064 = function(arg0, arg1, arg2) {
+        const ret = makeMutClosure(arg0, arg1, 481, __wbg_adapter_35);
         return ret;
     };
-    imports.wbg.__wbindgen_closure_wrapper6307 = function(arg0, arg1, arg2) {
-        const ret = makeClosure(arg0, arg1, 424, __wbg_adapter_38);
+    imports.wbg.__wbindgen_closure_wrapper7283 = function(arg0, arg1, arg2) {
+        const ret = makeClosure(arg0, arg1, 486, __wbg_adapter_38);
         return ret;
     };
     imports.wbg.__wbindgen_debug_string = function(arg0, arg1) {
@@ -1014,7 +1014,7 @@ async function __wbg_init(module_or_path) {
     }
 
     if (typeof module_or_path === 'undefined') {
-        module_or_path = new URL('leptos-blog-e652d82914dd6552_bg.wasm', import.meta.url);
+        module_or_path = new URL('leptos-blog-185a2d4d75613618_bg.wasm', import.meta.url);
     }
     const imports = __wbg_get_imports();
 

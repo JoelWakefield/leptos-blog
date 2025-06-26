@@ -1,38 +1,52 @@
-#[path = "./components/mod.rs"]
 mod components;
-#[path = "./pages/mod.rs"]
 mod pages;
 
 use components::nav_link::NavLink;
 use leptos::prelude::*;
 use leptos_router::{
-    components::{Route, Router, Routes},
+    components::{ParentRoute, Route, Router, Routes},
     path,
 };
-use pages::blogs::Blogs;
-use pages::home::Home;
-use pages::source_codes::SourceCodes;
-use pages::videos::Videos;
+use pages::{
+    about::About,
+    contact::ContactPage,
+    home::Home,
+    projects::{
+        break_glass::BreakGlass, course_constructor::CourseConstructor,
+        game_design_patterns::GameDesignPatterns, gomi_moni::GomiMoni, layout::Projects,
+        make_words::MakeWords,
+    },
+};
+
+use crate::app::pages::projects::hot_panda::HotPanda;
 
 #[component]
 pub fn App() -> impl IntoView {
     view! {
       <Router>
         <nav>
-          <div class="m-auto flex items-centered gap ">
+          <div class="m-auto flex items-centered gap bg-(--yellow)">
             <NavLink href="/" label="Home" />
-            <NavLink href="/blogs" label="Blogs" />
-            <NavLink href="/source-codes" label="Source Codes" />
-            <NavLink href="/videos" label="Videos" />
+            <NavLink href="/about" label="About Me" />
+            <NavLink href="/projects" label="Projects" />
+            <NavLink href="/contact" label="Contact Page" />
           </div>
         </nav>
         <main>
-          <Routes fallback=|| "404: Not Found.">
+          <Routes fallback=|| "404 - Turn Back">
             <Route path=path!("/") view=Home />
-            <Route path=path!("/blogs") view=Blogs />
-            <Route path=path!("/source-codes") view=SourceCodes />
-            <Route path=path!("/videos") view=Videos />
-            <Route path=path!("/*any") view=|| view! { <h1>"Not Found"</h1> }/>
+            <Route path=path!("/about") view=About />
+            <Route path=path!("/contact") view=ContactPage />
+            <ParentRoute path=path!("/projects") view=Projects>
+              <Route path=path!("/break-glass") view=BreakGlass/>
+              <Route path=path!("/course-constructor") view=CourseConstructor/>
+              <Route path=path!("/game-design-patterns") view=GameDesignPatterns/>
+              <Route path=path!("/gomi-moni") view=GomiMoni/>
+              <Route path=path!("/hot-panda") view=HotPanda/>
+              <Route path=path!("/make-words") view=MakeWords/>
+              <Route path=path!("") view=Projects/>
+            </ParentRoute>
+            <Route path=path!("/*any") view=|| view! { <h1>"404 - Ain't Nuthin' Here"</h1> }/>
           </Routes>
         </main>
       </Router>

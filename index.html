@@ -6,17 +6,22 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link data-trunk rel="copy-dir" href="/public" />
 
   <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
   <style type="text/tailwindcss">
     :root {
-      --background: #222034;
-      --foreground: #5bd117;
+      --darkblue: #222034;
+      --lightblue: #3f3f74;
+      --yellow: #5bd117;
+      --red: #ff5858;
     }
   
     body {
-      color: var(--foreground);
-      background: var(--background);
+      width: 48rem;
+      margin: auto;
+      color: var(--yellow);
+      background: var(--darkblue);
       font-family: Arial, Helvetica, sans-serif;
     }
   </style>
